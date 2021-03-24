@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     _pdfController = PdfController(
-      document: PdfDocument.openAsset('assets/sample.pdf'),
+      document: PdfDocument.openAsset('assets/quran.pdf'),
       initialPage: _initialPage,
     );
     super.initState();
@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   if (isSampleDoc) {
                     _pdfController.loadDocument(
-                        PdfDocument.openAsset('assets/dummy.pdf'));
+                        PdfDocument.openAsset('assets/quran.pdf'));
                   } else {
                     _pdfController.loadDocument(
                         PdfDocument.openAsset('assets/sample.pdf'));
@@ -77,6 +77,7 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
           body: PdfView(
+            rightToLeft: true,
             documentLoader: Center(child: CircularProgressIndicator()),
             pageLoader: Center(child: CircularProgressIndicator()),
             controller: _pdfController,
